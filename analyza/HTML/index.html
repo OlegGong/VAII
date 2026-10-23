@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbalový prehľad - Detail tímu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HLAVIČKA A NAVIGÁCIA -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <div class="logo-icon">⚽</div>
+                <span class="app-title">Futbalový prehľad</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Domov</a></li>
+                    <li><a href="#" class="active">Tímy</a></li>
+                    <li><a href="#">Hráči</a></li>
+                    <li><a href="#">Zápasy</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn btn-outline">Prihlásiť sa</a>
+                <a href="#" class="btn btn-primary">Registrácia</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HLAVNÝ OBSAH: NETRIVIÁLNA STRÁNKA - DETAIL TÍMU -->
+    <main class="main-content container">
+
+        <!-- KARTA DETAILU TÍMU -->
+        <section class="team-header-card">
+            <div class="team-logo-placeholder">
+                <span>LOGO TÍMU</span>
+            </div>
+            <div class="team-info">
+                <h1>ŠK Slovan Bratislava</h1>
+                <p class="team-meta">
+                    <strong>Krajina:</strong> Slovensko | 
+                    <strong>Založený:</strong> 1919 | 
+                    <strong>Štadión:</strong> Tehelné pole
+                </p>
+                <button class="btn btn-favorite">★ Pridať k obľúbeným</button>
+            </div>
+        </section>
+
+        <!-- SEKCIA HRÁČOV S FILTROVANÍM (AJAX MOCK) -->
+        <section class="section-block">
+            <h2>Zoznam hráčov</h2>
+
+            <div class="filter-bar">
+                <input type="text" placeholder="Vyhľadať hráča podľa mena..." class="form-control">
+                <select class="form-control">
+                    <option value="">Všetky pozície</option>
+                    <option value="GK">Brankár</option>
+                    <option value="DF">Obranca</option>
+                    <option value="MF">Stredopoliar</option>
+                    <option value="FW">Útočník</option>
+                </select>
+                <!-- ADMIN OVLÁDACÍ PRVOK -->
+                <button class="btn btn-success">+ Pridať hráča</button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Číslo dresu</th>
+                            <th>Meno</th>
+                            <th>Priezvisko</th>
+                            <th>Pozícia</th>
+                            <th>Akcie (Admin)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Dominik</td>
+                            <td>Takáč</td>
+                            <td>Brankár</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Upraviť</button>
+                                <button class="btn btn-sm btn-delete">Mazať</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Guram</td>
+                            <td>Kashia</td>
+                            <td>Obranca</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Upraviť</button>
+                                <button class="btn btn-sm btn-delete">Mazať</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>Cristiano</td>
+                            <td>Ronaldo</td>
+                            <td>Útočník</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Upraviť</button>
+                                <button class="btn btn-sm btn-delete">Mazať</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>77</td>
+                            <td>Leo</td>
+                            <td>Pepsi</td>
+                            <td>Stredopoliar</td>
+                            <td>
+                                <button class="btn btn-sm btn-edit">Upraviť</button>
+                                <button class="btn btn-sm btn-delete">Mazať</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEKCIA ZÁPASOV TÍMU -->
+        <section class="section-block">
+            <h2>Posledné a plánované zápasy</h2>
+
+            <div class="matches-grid">
+                <div class="match-card">
+                    <div class="match-date">12. Oktróber 2024 - 18:00</div>
+                    <div class="match-teams">
+                        <span><strong>ŠK Slovan Bratislava</strong></span>
+                        <span class="score">2 : 1</span>
+                        <span>FC Spartak Trnava</span>
+                    </div>
+                    <div class="match-status finished">Odohrané</div>
+                </div>
+
+                <div class="match-card">
+                    <div class="match-date">26. Oktróber 2024 - 15:00</div>
+                    <div class="match-teams">
+                        <span>MŠK Žilina</span>
+                        <span class="score">VS</span>
+                        <span><strong>ŠK Slovan Bratislava</strong></span>
+                    </div>
+                    <div class="match-status planned">Plánovaný</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PÄTIČKA -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Futbalový prehľad | Meno a priezvisko: <strong>Gongalschi Oleg</strong> | Skupina: <strong>5ZYI35</strong></p>
+        </div>
+    </footer>
+
+</body>
+</html>

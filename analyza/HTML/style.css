@@ -1,0 +1,294 @@
+/* RESET A ZÁKLADNÉ NASTAVENIA */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* KONTAJNER PRE OBSAH */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HLAVIČKA */
+.site-header {
+    background-color: #1b2a47;
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.app-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #38bdf8;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* TLAČIDLÁ */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-primary { background-color: #0284c7; color: white; }
+.btn-primary:hover { background-color: #0369a1; }
+
+.btn-outline { background-color: transparent; border: 1px solid #cbd5e1; color: white; }
+.btn-outline:hover { background-color: rgba(255,255,255,0.1); }
+
+.btn-favorite { background-color: #f59e0b; color: white; margin-top: 10px; }
+.btn-favorite:hover { background-color: #d97706; }
+
+.btn-success { background-color: #16a34a; color: white; }
+.btn-success:hover { background-color: #15803d; }
+
+.btn-sm { padding: 4px 8px; font-size: 0.8rem; }
+.btn-edit { background-color: #eab308; color: white; }
+.btn-delete { background-color: #ef4444; color: white; }
+
+/* HLAVNÝ OBSAH */
+.main-content {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+.section-block {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.section-block h2 {
+    margin-bottom: 15px;
+    color: #1b2a47;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+/* DETAIL TÍMU HEADER */
+.team-header-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.team-logo-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #64748b;
+    border-radius: 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.team-info h1 {
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+.team-meta {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* FILTROVANIE */
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+input.form-control {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* TABUĽKA */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th, 
+.data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: #475569;
+}
+
+/* ZÁPASY GRID */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.match-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #f8fafc;
+}
+
+.match-date {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.score {
+    background: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.match-status {
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.match-status.finished { background: #dcfce7; color: #15803d; }
+.match-status.planned { background: #e0f2fe; color: #0369a1; }
+
+/* PÄTIČKA */
+.site-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* RESPONZÍVNE PRISPÔSOBENIE (MEDIA QUERIES) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .team-header-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+    }
+
+    .filter-bar .form-control,
+    .filter-bar .btn {
+        width: 100%;
+    }
+}
