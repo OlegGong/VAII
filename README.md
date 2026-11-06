@@ -62,6 +62,14 @@ Dve AJAX operácie, napríklad filtrovanie hráčov a odosielanie formulára.
 Nahrávanie a správa log tímov.
 Validácia vstupov a zabezpečenie aplikácie.
 Responzívne používateľské rozhranie.
+
+## Databázové CRUD
+
+Aplikácia obsahuje entitu `Player` uloženú v tabuľke `players`. Stránka **Hráči** umožňuje
+pomocou vstavaného ORM frameworku Vaííčko záznamy načítať, pridať, upraviť a odstrániť.
+SQL skript na vytvorenie tabuľky a vloženie ukážkových údajov sa nachádza v
+`docker/sql/001_players.sql` a Docker ho automaticky importuje pri inicializácii databázy.
+
 Technické požiadavky
 PHP a framework VAJKO.
 Oddelenie aplikačnej logiky od prezentačnej vrstvy.

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <title><?= App\Configuration::APP_NAME ?></title>
+    <title>Futbalový prehľad</title>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= $link->asset('favicons/apple-touch-icon.png') ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= $link->asset('favicons/favicon-32x32.png') ?>">
@@ -25,12 +25,18 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= $link->url('home.index') ?>">
-            <img src="<?= $link->asset('images/vaiicko_logo.png') ?>" title="<?= App\Configuration::APP_NAME ?>" alt="Framework Logo">
+        <a class="navbar-brand fw-bold" href="<?= $link->url('home.index') ?>">
+            ⚽ Futbalový prehľad
         </a>
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?= $link->url('home.contact') ?>">Contact</a>
+                <a class="nav-link" href="<?= $link->url('home.index') ?>">Domov</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= $link->url('team.detail') ?>">Tímy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= $link->url('player.index') ?>">Hráči</a>
             </li>
         </ul>
         <?php if ($user->isLoggedIn()) { ?>
