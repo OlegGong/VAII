@@ -33,7 +33,7 @@
                 <a class="nav-link" href="<?= $link->url('home.index') ?>">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= $link->url('team.detail') ?>">Tímy</a>
+                <a class="nav-link" href="<?= $link->url('team.index') ?>">Tímy</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= $link->url('player.index') ?>">Hráči</a>

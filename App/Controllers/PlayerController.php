@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Player;
+use App\Models\Team;
 use Exception;
 use Framework\Core\BaseController;
 use Framework\Http\Request;
@@ -14,6 +15,7 @@ class PlayerController extends BaseController
     {
         return $this->html([
             'players' => Player::getAll(orderBy: 'surname ASC, name ASC'),
+            'teams' => Team::getAll(orderBy: 'name ASC'),
         ]);
     }
 
@@ -27,7 +29,10 @@ class PlayerController extends BaseController
             }
         }
 
-        return $this->html(['player' => $player]);
+        return $this->html([
+            'player' => $player,
+            'teams' => Team::getAll(orderBy: 'name ASC'),
+        ]);
     }
 
     public function save(Request $request): Response
@@ -48,6 +53,9 @@ class PlayerController extends BaseController
         }
 
         $player->setFromRequest($request);
+        if ($player->teamId === '') {
+            $player->teamId = null;
+        }
         $player->save();
 
         return $this->redirect($this->url('player.index'));

@@ -70,6 +70,10 @@ pomocou vstavaného ORM frameworku Vaííčko záznamy načítať, pridať, upra
 SQL skript na vytvorenie tabuľky a vloženie ukážkových údajov sa nachádza v
 `docker/sql/001_players.sql` a Docker ho automaticky importuje pri inicializácii databázy.
 
+Entita `Team` je s hráčmi prepojená vzťahom 1:N cez cudzí kľúč `players.teamId`.
+Stránka **Tímy** obsahuje kompletný CRUD tímov. Detail tímu zobrazuje priradených
+hráčov a pri úprave hráča je možné jeho tím zmeniť alebo odstrániť.
+
 Technické požiadavky
 PHP a framework VAJKO.
 Oddelenie aplikačnej logiky od prezentačnej vrstvy.

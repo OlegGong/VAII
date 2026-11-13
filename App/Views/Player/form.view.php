@@ -2,6 +2,7 @@
 
 /** @var \Framework\Support\LinkGenerator $link */
 /** @var \App\Models\Player|null $player */
+/** @var \App\Models\Team[] $teams */
 $isEdit = $player !== null;
 ?>
 
@@ -30,6 +31,18 @@ $isEdit = $player !== null;
             <label class="form-label" for="shirtNumber">Číslo dresu</label>
             <input class="form-control" id="shirtNumber" name="shirtNumber" type="number" min="1" required
                    value="<?= e($player?->shirtNumber ?? '') ?>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="teamId">Tím</label>
+            <select class="form-select" id="teamId" name="teamId">
+                <option value="">Bez tímu</option>
+                <?php foreach ($teams as $team) { ?>
+                    <option value="<?= e($team->id) ?>"
+                        <?= (string)($player?->teamId ?? '') === (string)$team->id ? 'selected' : '' ?>>
+                        <?= e($team->name) ?>
+                    </option>
+                <?php } ?>
+            </select>
         </div>
         <button class="btn btn-primary" type="submit">Uložiť</button>
         <a class="btn btn-secondary" href="<?= $link->url('player.index') ?>">Späť</a>

@@ -1,69 +1,46 @@
 <?php
 
 /** @var \Framework\Support\LinkGenerator $link */
+/** @var \App\Models\Team $team */
+/** @var \App\Models\Player[] $players */
 ?>
 
-<main class="football-main container">
-    <section class="team-header-card">
-        <div class="team-logo-placeholder">LOGO TÍMU</div>
-        <div class="team-info">
-            <h1>ŠK Slovan Bratislava</h1>
-            <p class="team-meta"><strong>Krajina:</strong> Slovensko |
-                <strong>Založený:</strong> 1919 |
-                <strong>Štadión:</strong> Tehelné pole</p>
-            <button class="football-btn football-btn-favorite">★ Pridať k obľúbeným</button>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h1><?= e($team->name) ?></h1>
+            <p class="mb-0"><?= e($team->country) ?>, <?= e($team->stadium) ?><?php if ($team->foundedYear) { ?>,
+                založený <?= e($team->foundedYear) ?><?php } ?></p>
         </div>
-    </section>
-
-    <section class="football-section">
-        <h2>Zoznam hráčov</h2>
-        <div class="filter-bar">
-            <input class="football-form-control" type="text" placeholder="Vyhľadať hráča podľa mena...">
-            <select class="football-form-control">
-                <option>Všetky pozície</option>
-                <option>Brankár</option>
-                <option>Obranca</option>
-                <option>Stredopoliar</option>
-                <option>Útočník</option>
-            </select>
-            <a class="football-btn football-btn-success" href="<?= $link->url('player.form') ?>">+ Pridať hráča</a>
+        <div class="d-flex gap-2">
+            <a class="btn btn-warning" href="<?= $link->url('team.form', ['id' => $team->id]) ?>">Upraviť tím</a>
+            <a class="btn btn-secondary" href="<?= $link->url('team.index') ?>">Späť na tímy</a>
         </div>
+    </div>
 
-        <div class="table-responsive">
-            <table class="data-table">
-                <thead>
+    <h2>Hráči tímu</h2>
+    <?php if (count($players) === 0) { ?>
+        <div class="alert alert-info">Tím zatiaľ nemá priradených hráčov.</div>
+    <?php } else { ?>
+        <table class="table table-striped">
+            <thead>
+            <tr><th>Meno</th><th>Priezvisko</th><th>Pozícia</th><th>Číslo dresu</th><th>Akcie</th></tr>
+            </thead>
+            <tbody>
+            <?php foreach ($players as $player) { ?>
                 <tr>
-                    <th>Číslo dresu</th>
-                    <th>Meno a priezvisko</th>
-                    <th>Pozícia</th>
-                    <th>Akcie</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Dominik Takáč</td>
-                    <td>Brankár</td>
+                    <td><?= e($player->name) ?></td>
+                    <td><?= e($player->surname) ?></td>
+                    <td><?= e($player->position) ?></td>
+                    <td><?= e($player->shirtNumber) ?></td>
                     <td>
-                        <a class="football-btn football-btn-sm football-btn-edit"
-                           href="<?= $link->url('player.index') ?>">Upraviť</a>
-                        <a class="football-btn football-btn-sm football-btn-delete"
-                           href="<?= $link->url('player.index') ?>">Mazať</a>
+                        <a class="btn btn-sm btn-warning"
+                           href="<?= $link->url('player.form', ['id' => $player->id]) ?>">Upraviť priradenie</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>77</td>
-                    <td>Dávid Strelec</td>
-                    <td>Útočník</td>
-                    <td>
-                        <a class="football-btn football-btn-sm football-btn-edit"
-                           href="<?= $link->url('player.index') ?>">Upraviť</a>
-                        <a class="football-btn football-btn-sm football-btn-delete"
-                           href="<?= $link->url('player.index') ?>">Mazať</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-</main>
+            <?php } ?>
+            </tbody>
+        </table>
+    <?php } ?>
+    <a class="btn btn-success" href="<?= $link->url('player.form') ?>">+ Pridať hráča</a>
+</div>
